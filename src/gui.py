@@ -38,7 +38,7 @@ def gui(config_raw: str, data_raw: str):
 
     def process_inference(model: str, input_text: str):
         text = f"Model: {model}\n{input_text}"
-        yield text + "... (model loading)"
+        yield f"{text}... (model loading)"
         try:
             for chunk in Inference(model.split("@")[-1]).completion.remote_gen(
                 input_text
